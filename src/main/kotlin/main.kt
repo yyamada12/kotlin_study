@@ -1,12 +1,23 @@
-open class Lion(val name: String, val origin: String) {
-    fun sayHello() {
-        println("$name, the lion from $origin syas: graoh!")
-    }
-}
-
-class Asiatic(name: String) : Lion(name = name, origin="India")
+data class User(val name: String, val id: Int)
 
 fun main() {
-    val lion: Lion = Asiatic("Rufo")
-    lion.sayHello()
+    val user = User("Alex", 1)
+    println(user)
+
+    val secondUser = User("Alex", 1)
+    val thirdUser = User("Max", 2)
+
+    println("user == secondUser: ${user == secondUser}")
+    println("user == thirdUser: ${user == thirdUser}")
+
+    println(user.copy())
+    println(user.copy("Max"))
+    println(user.copy(id = 2))
+
+    val forthUser = user.copy("Lax", 3)
+    println(user)
+    println(forthUser)
+
+    println("name = ${user.component1()}")
+    println("id = ${user.component2()}")
 }
